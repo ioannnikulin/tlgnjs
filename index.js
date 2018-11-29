@@ -5,7 +5,7 @@ const TOKEN = process.env.TLGTOKEN
 const bot = new TelegramBot(TOKEN, {polling: true})
 
 bot.onText(/\/test/, (msg, match) => {
-	bot.sendMessage(`@a5a6a5678`, `test success`)
+	bot.sendMessage(msg.chat.id , msg.text.match(/\/test(.*)/)[1])
 })
 
 bot.on('message', msg => {
